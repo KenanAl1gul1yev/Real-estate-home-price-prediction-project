@@ -1,0 +1,55 @@
+GO
+use master
+CREATE DATABASE Homeprices_Baku
+ON PRIMARY
+(
+    NAME = Homeprices_Baku,
+    FILENAME = 'D:\Bases\Homeprices_Baku.mdf',
+    SIZE = 100MB,
+    maxsize = 1GB,
+    filegrowth = 10%
+),
+(
+    NAME = Homeprices_Baku_logs,
+    FILENAME = 'D:\Bases\Homeprices_Baku.ldf',
+    SIZE = 25MB,
+    maxsize = 250MB,
+    filegrowth = 10%
+)
+GO
+use Homeprices_Baku
+CREATE TABLE Apartments(
+    ID INT IDENTITY(1, 1),
+    Location NVARCHAR(100),
+    Rooms NVARCHAR(100),
+    Area NVARCHAR(100),
+    FLOOR NVARCHAR(100),
+    Price NVARCHAR (100)
+)
+GO
+DELETE FROM Apartments
+GO
+DBCC CHECKIDENT ('Apartments', RESEED, 0)
+GO
+ALTER TABLE Apartments
+ALTER COLUMN Price INT
+GO
+ALTER TABLE Apartments
+ALTER COLUMN Area DECIMAL(10, 1)
+GO
+ALTER TABLE Apartments
+ALTER COLUMN Rooms TINYINT
+GO
+USE Homeprices_Baku
+CREATE TABLE Houses(
+    ID INT IDENTITY(1, 1),
+    Location NVARCHAR(100),
+    Rooms TINYINT,
+    Area DECIMAL(10, 1),
+    Price INT,
+    CONSTRAINT PK_Houses PRIMARY KEY(ID)
+)
+GO
+UPDATE Houses SET Rooms = NULL WHERE Rooms = 0
+GO
+EXEC sp_rename 'Apartments.FLOOR', 'Floor', 'COLUMN'
