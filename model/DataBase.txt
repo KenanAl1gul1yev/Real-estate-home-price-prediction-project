@@ -46,6 +46,7 @@ CREATE TABLE Houses(
     Location NVARCHAR(100),
     Rooms TINYINT,
     Area DECIMAL(10, 1),
+    GroundArea DECIMAL(10, 1),
     Price INT,
     CONSTRAINT PK_Houses PRIMARY KEY(ID)
 )
@@ -53,3 +54,5 @@ GO
 UPDATE Houses SET Rooms = NULL WHERE Rooms = 0
 GO
 EXEC sp_rename 'Apartments.FLOOR', 'Floor', 'COLUMN'
+GO
+Update Houses set Location = Null where Location = 'null'
