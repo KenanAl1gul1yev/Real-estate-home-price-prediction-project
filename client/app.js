@@ -11,7 +11,7 @@ estPrice.addEventListener("click", function ad(e) {
 });
 async function onClickedEstimatePrice() {
   let location = document.querySelector("#uiLocations");
-  const url = "http://127.0.0.1:5000/predict_home_price";
+  const url = "http://127.0.0.1:5000/predict_apt_price";
   console.log(parseFloat(floor.value / floor2.value));
   console.log(location.value.slice(9));
   console.log("Estimate price button clicked");
@@ -34,7 +34,7 @@ async function onClickedEstimatePrice() {
 
 async function onPageLoad() {
   console.log("document loaded");
-  const url = "http://127.0.0.1:5000/get_location_names";
+  const url = "http://127.0.0.1:5000/get_apt_location_names";
   $.get(url, function (data, status) {
     console.log("got response for get_location_names request");
     if (data) {

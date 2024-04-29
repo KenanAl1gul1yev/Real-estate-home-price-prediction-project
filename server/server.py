@@ -4,24 +4,24 @@ import util
 app = Flask(__name__)
 
 
-@app.route('/get_location_names', methods=['GET'])
-def get_location_names():
+@app.route('/get_apt_location_names', methods=['GET'])
+def get_apt_location_names():
     response = jsonify({
-        'locations': util.get_location_names()
+        'locations': util.get_apt_location_names()
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 
-@app.route('/predict_home_price', methods=['GET', 'POST'])
-def predict_home_price():
+@app.route('/predict_apt_price', methods=['GET', 'POST'])
+def predict_apt_price():
     location = request.form['location']
     rooms = int(request.form['rooms'])
     area = float(request.form['area'])
     floor = float(request.form['floor'])
 
     response = jsonify({
-        'estimated_price': util.get_estimated_price(location, rooms, area, floor)
+        'estimated_price': util.get_apt_estimated_price(location, rooms, area, floor)
     })
 
     response.headers.add('Access-Control-Allow-Origin', '*')
