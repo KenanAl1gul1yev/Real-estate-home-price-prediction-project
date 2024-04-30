@@ -56,3 +56,8 @@ GO
 EXEC sp_rename 'Apartments.FLOOR', 'Floor', 'COLUMN'
 GO
 Update Houses set Location = Null where Location = 'null'
+update Houses set Rooms = Null where Rooms = 0
+update Houses set Area = Null where Area = 0
+update Houses set GroundArea = Null where GroundArea = 0
+GO
+DBCC CHECKIDENT ('Houses', RESEED, 0) 
