@@ -7,47 +7,52 @@
   </head>
   <body>
     <div class="img"></div>
-    <form class="form" action="/">
+    <form class="form" action="#">
+      <div class="change_type_btns">
+        <button class="click_btn" id="change_apart">Apartments</button>
+        <button id="change_house">Houses</button>
+      </div>
       <h2>Area (m2)</h2>
       <input
-        class="area"
+        class="area floatLabel"
         type="text"
         id="uiSqft"
-        class="floatLabel"
         name="Squareft"
-        placeholder="200" />
+        placeholder="exp: 200"
+      />
       <h2>Rooms</h2>
       <input
-        class="area"
+        class="area floatLabel"
         type="text"
         id="uiRooms"
-        class="floatLabel"
         name="Roomcount"
-        placeholder="3" />
-      <h2>Floor(Apartment located)</h2>
-      <input
-        class="area"
-        type="text"
-        id="uiFloor"
-        class="floatLabel"
-        name="Floor"
-        placeholder="5" />
-      <h2>Floor(Building have)</h2>
-      <input
-        class="area"
-        type="text"
-        id="uiFloor2"
-        class="floatLabel"
-        name="Floor2"
-        placeholder="17" />
+        placeholder="exp: 3"
+      />
+      <div id="change_place">
+        <h2>Floor(Apartment located)</h2>
+        <input
+          class="area floatLabel"
+          type="text"
+          id="uiFloor"
+          name="Floor"
+          placeholder="exp: 5" />
+        <h2>Floor(Building have)</h2>
+        <input
+          class="area floatLabel"
+          type="text"
+          id="uiFloor2"
+          name="Floor2"
+          placeholder="exp: 17" />
+      </div>
+
       <h2>Location</h2>
       <div>
         <select class="location" name="" id="uiLocations">
-          <option value="" disabled="disabled" selected="selected">
+          <option value="" selected="selected">
             Choose a Location
           </option>
-          <option>Nəriman Nərimanov m.</option>
-          <option>20 Yanvar m.</option>
+          <!-- <option>Nəriman Nərimanov m.</option>
+          <option>20 Yanvar m.</option> -->
         </select>
       </div>
       <button class="submit" type="submit">Estimate Price</button>
