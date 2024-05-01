@@ -99,11 +99,14 @@ async function onPageLoadApt() {
     if (data) {
       let locations = data.locations;
       $("#uiLocations").empty();
+      $("#uiLocations").selectpicker("refresh");
       for (let i in locations) {
         let opt = new Option(locations[i]);
         $("#uiLocations").append(opt);
+        $("#uiLocations").selectpicker("refresh");
       }
       $("#uiLocations").append("<option>Diger...</option>");
+      $("#uiLocations").selectpicker("refresh");
     }
   });
 }
@@ -116,13 +119,21 @@ async function onPageLoadHouse() {
     if (data) {
       let locations = data.locations;
       $("#uiLocations").empty();
+      $("#uiLocations").selectpicker("refresh");
       for (let i in locations) {
         let opt = new Option(locations[i]);
         $("#uiLocations").append(opt);
+        $("#uiLocations").selectpicker("refresh");
       }
       $("#uiLocations").append("<option>Diger...</option>");
+      $("#uiLocations").selectpicker("refresh");
     }
   });
 }
 
 window.onload = onPageLoadApt;
+
+
+$(function () {
+  $(".selectpicker").selectpicker();
+});
