@@ -23,8 +23,10 @@ async function onClickedEstimatePriceApt() {
   let location = document.querySelector("#uiLocations");
   const url = "http://127.0.0.1:5000/predict_apt_price";
   console.log(parseFloat(floor.value / floor2.value));
-  console.log(location.value.slice(9));
+  console.log(location.value);
   console.log("Estimate price button clicked");
+  console.log(sqft.value);
+  console.log(rooms.value);
   $.post(
     url,
     {
@@ -46,7 +48,7 @@ async function onClickedEstimatePriceHouse() {
   let groundArea = document.querySelector("#uiGroundArea");
   let location = document.querySelector("#uiLocations");
   const url = "http://127.0.0.1:5000/predict_house_price";
-  console.log(location.value.slice(9));
+  console.log(location.value);
   console.log("Estimate price button clicked");
   $.post(
     url,
